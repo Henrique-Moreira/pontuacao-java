@@ -9,8 +9,9 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int qntC;
+		int qntC, atrasos;
 		double tm;
+		char pagamento;
 		
 		System.out.println("SISTEMA DE PERFIL DE CLIENTE");
 		System.out.println("--------------------------------");
@@ -21,6 +22,14 @@ public class programa {
 		qntC = sc.nextInt();
 		System.out.print("Qual o ticket médio? ");
 		tm = sc.nextDouble();
+		
+		System.out.println();
+		System.out.print("Quantas vezes o cliente atrasou o pagamento? ");
+		atrasos = sc.nextInt();
+		System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)?");
+		pagamento = sc.next().charAt(0);
+		
+		
 		
 		sc.close();
 	}

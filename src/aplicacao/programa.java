@@ -9,11 +9,13 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		int qntC, atrasos, svc;
+		int qntC, atrasos, svc, si, sp;
 		double tm;
 		char pagamento;
-
+		
 		svc = 0;
+		si = 0;
+		sp = 0;
 
 		System.out.println("SISTEMA DE PERFIL DE CLIENTE");
 		System.out.println("--------------------------------");
@@ -46,7 +48,27 @@ public class programa {
 
 		System.out.println();
 		System.out.println("Score de volume de compras = " + svc + " pontos");
-
+		
+		if (atrasos > 1 || qntC == 0) {
+			si = 0;
+		}
+		else if (atrasos == 1 && qntC > 0) {
+			si = 15;
+		}
+		else if (atrasos == 0 && qntC > 0) {
+			si = 30;
+		}
+		
+		if (pagamento == 'D' || pagamento == 'd') {
+			sp = 5;
+		}
+		else if (pagamento == 'C' || pagamento == 'c' || pagamento == 'B' || pagamento == 'b') {
+			sp = 10;
+		}
+		
+		System.out.println();
+		System.out.println("Score de inadimplência = " + si + " pontos");
+		System.out.println("Score de forma de pagamento = " + sp);
 		sc.close();
 	}
 
